@@ -8,6 +8,8 @@
 #include <grp.h>
 //
 void walk_dir(char *);
+int change_own(char *file);
+int change_mod(char *file);
 //int  para_check(int argc, char* argv[]);
 
 //これは以下のシェルの代用として作成した：
@@ -55,6 +57,7 @@ int change_own(char *file) {
     if ( ret != 0 ) {
         printf("%s\n","chown aborted!!");
     }
+    return 0;
 }
 
 // stat.hライブラリを使用してchmodする
@@ -68,6 +71,7 @@ int change_mod(char *file) {
     if ( ret != 0 ) {
         printf("%s\n","chmod aborted!!");
     }
+    return 0;
 
 }
 
