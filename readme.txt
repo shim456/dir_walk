@@ -2,7 +2,8 @@
 　　シェルプログラム(home/script/shell/sendml/apache_ses.sh)の代替品
 　　C言語で作成した実行モジュールなのでSUIDを使用することができます。
 　　コンパイル方法について：
-　　◯ gcc suid_chmod.c -o suid_mod
+
+　　◯ make
 　　◯ sudo chown root.root suid_mod
 　　◯ sudo chmod u+s suid_chmod
 
@@ -14,15 +15,11 @@
 
 
 ◯使用方法は例えば、以下です：
-	/home/shimura/dir_walk/suid_chmod /home/sendml >/dev/null
-	※全て絶対パスを指定して起動する必要があります
+        /home/shimura/dir_walk/suid_chmod /home/sendml >/dev/null
+        ※全て絶対パスを指定して起動する必要があります
 
+◯ソースファイルについて
+        ◯suid_chmod.ca メインプログラム、ディレクトリを再帰的に歩き回る
+        ◯change_own.ca ファイルディレクトリの所有者を変更する
+        ◯change_mod.ca ファイルディレクトリのモードを変更する(SUID設定)
 
-内容を変更してみる、Git pullコマンド確認のため
-
-再変更、Git fetch/mergeの確認のため
-
-2021/01/23 追加　08:33
-
-
-2021/01/23 追加　08:
