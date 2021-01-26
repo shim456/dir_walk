@@ -47,34 +47,6 @@ int main(int argc, char *argv[])
     exit(EXIT_SUCCESS);
 }
 
-// システムコールchownを使用してchownする
-// chown .eigyo fileコマンド相当
-int change_own(char *file) {
-    int  ret;
-    struct group *grp = NULL;
-    grp = getgrnam("root");    //GIDを取得する
-    ret = chown(file, -1, grp->gr_gid);
-    if ( ret != 0 ) {
-        printf("%s\n","chown aborted!!");
-    }
-    return 0;
-}
-
-// stat.hライブラリを使用してchmodする
-// chmod 777 fileコマンド相当
-int change_mod(char *file) {
-    int  ret;
-    ret = chmod(file,
-	S_IRUSR | S_IWUSR | S_IXUSR |    /* rwx */
-	S_IRGRP | S_IWGRP | S_IXGRP |    /* rwx */
-	S_IROTH | S_IWOTH | S_IXOTH );   /* rwx */
-    if ( ret != 0 ) {
-        printf("%s\n","chmod aborted!!");
-    }
-    return 0;
-
-}
-
 //ディレクトリを再帰的に処理する
 void walk_dir(char *dir)
 {
